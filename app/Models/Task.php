@@ -15,10 +15,16 @@ class Task extends Model
         'description',
         'status',
         'due_date',
+        'creator_id',
     ];
 
     public function project()
     {
         return $this->belongsTo(Project::class);
+    }
+
+    public function creator()
+    {
+        return $this->belongsTo(User::class, 'creator_id');
     }
 }

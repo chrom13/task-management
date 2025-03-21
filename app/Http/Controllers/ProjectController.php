@@ -20,7 +20,14 @@ class ProjectController extends Controller
             'deadline' => 'required|date',
         ]);
 
-        $project = Project::create($request->all());
+        $project = Project::create([
+            'title' => $request->title,
+            'description' => $request->description,
+            'deadline' => $request->deadline,
+            'creator_id' => auth()->id(),
+        ]);
+
+
         return response()->json($project, 201);
     }
 

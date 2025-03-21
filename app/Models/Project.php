@@ -13,10 +13,16 @@ class Project extends Model
         'title',
         'description',
         'deadline',
+        'creator_id'
     ];
 
     public function tasks()
     {
         return $this->hasMany(Task::class);
+    }
+
+    public function creator()
+    {
+        return $this->belongsTo(User::class, 'creator_id');
     }
 }

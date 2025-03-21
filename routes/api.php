@@ -43,5 +43,5 @@ Route::middleware('auth:sanctum')->group(function () {
     });
 
     // Reporting endpoint
-    //Route::get('/projects/{project}/stats', [ProjectStatsController::class, 'stats']);
+    Route::get('/projects/{project}/stats', [ProjectStatsController::class, 'stats']);
 });
